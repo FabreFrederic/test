@@ -29,7 +29,7 @@ public class CalendrierTest {
     public void test() {
 	Calendar calendar = Calendar.getInstance();
 	calendar.setTime(new Date());
+	// Ajout de commentaire pour tester la branche02
 	calendar.add(Calendar.DAY_OF_YEAR, 0);
-	
     }
 }
