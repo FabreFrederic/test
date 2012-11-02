@@ -6,6 +6,7 @@ package com.fabrefrederic.test.capdemat.teleservice;
 import static org.junit.Assert.assertTrue;
 
 import org.apache.commons.lang.StringUtils;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
@@ -50,6 +51,16 @@ public class InterventionTechniqueTest extends AbstractInexineTest {
 	assertTrue("Numéro de  la rue non persisté ou incorrect", body.contains(streetNumber));
 	assertTrue("Nom de la rue non persistée ou incorrecte", body.contains(streetName));
 	assertTrue("Ville non persistée ou incorrecte", body.contains(city));
+    }
+    
+    /**
+     * 
+     * @throws java.lang.Exception
+     * 
+     */
+    @BeforeClass
+    public static void setUp() throws Exception {
+	AbstractInexineTest.login();
     }
 
 }

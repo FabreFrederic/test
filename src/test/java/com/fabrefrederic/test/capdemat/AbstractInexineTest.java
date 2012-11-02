@@ -11,9 +11,6 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -31,11 +28,11 @@ public abstract class AbstractInexineTest {
 
     /**
      * 
-     * @throws java.lang.Exception
-     * 
+     *
+     * @throws Exception 
+     *
      */
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
+    public static void login() throws Exception {
 	// Paramétrage
 	try {
 	    properties.load(new FileInputStream("src/test/resources/config.properties"));
@@ -64,25 +61,6 @@ public abstract class AbstractInexineTest {
 	driver.findElement(By.id("password")).clear();
 	driver.findElement(By.id("password")).sendKeys(properties.getProperty("password"));
 	driver.findElement(By.cssSelector("input.button")).click();
-    }
-
-    /**
-     * 
-     * @throws java.lang.Exception
-     * 
-     */
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
-    }
-
-    /**
-     * 
-     * @throws java.lang.Exception
-     * 
-     */
-    @Before
-    public void setUp() throws Exception {
-
     }
 
     /**
