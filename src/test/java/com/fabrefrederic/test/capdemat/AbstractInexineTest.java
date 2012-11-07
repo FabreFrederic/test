@@ -55,7 +55,7 @@ public abstract class AbstractInexineTest {
 		.implicitlyWait(Integer.parseInt(properties.getProperty("driver.timeout")), TimeUnit.SECONDS);
 
 	// Connexion au site
-	driver.get(baseUrl + "/CapDemat/frontoffice/home/login");
+	driver.get(baseUrl + "/frontoffice/home/login");
 	driver.findElement(By.id("login")).clear();
 	driver.findElement(By.id("login")).sendKeys(properties.getProperty("login"));
 	driver.findElement(By.id("password")).clear();

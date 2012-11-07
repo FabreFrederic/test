@@ -13,13 +13,28 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.fabrefrederic.test.capdemat.AbstractInexineTest;
 
+/**
+ * 
+ * @author Inexine : Frederic Fabre
+ *
+ */
 public class InterventionTechniqueTest extends AbstractInexineTest {
-    
 
     /**
      * 
-     * @throws Exception
+     * @throws java.lang.Exception
      * 
+     */
+    @BeforeClass
+    public static void setUp() throws Exception {
+	AbstractInexineTest.login();
+    }
+    
+    /**
+     * Création d'une demande de type intervention technique
+     *
+     * @throws Exception 
+     *
      */
     @Test
     public void interventionTechniqueCreation() throws Exception {
@@ -29,7 +44,7 @@ public class InterventionTechniqueTest extends AbstractInexineTest {
 	String streetName = StringUtils.upperCase("rue des travaux");
 	String city = StringUtils.upperCase("Montpellier");
 
-	AbstractInexineTest.driver.get(AbstractInexineTest.baseUrl + "/CapDemat/frontoffice/requestType/index");
+	AbstractInexineTest.driver.get(AbstractInexineTest.baseUrl + "/frontoffice/requestType/index");
 	AbstractInexineTest.driver.findElement(By.linkText("Intervention technique")).click();
 	new Select(AbstractInexineTest.driver.findElement(By.name("interventionType[0].name"))).selectByVisibleText(interventionType);
 	AbstractInexineTest.driver.findElement(By.id("interventionPlace_streetNumber")).clear();
@@ -52,15 +67,4 @@ public class InterventionTechniqueTest extends AbstractInexineTest {
 	assertTrue("Nom de la rue non persistée ou incorrecte", body.contains(streetName));
 	assertTrue("Ville non persistée ou incorrecte", body.contains(city));
     }
-    
-    /**
-     * 
-     * @throws java.lang.Exception
-     * 
-     */
-    @BeforeClass
-    public static void setUp() throws Exception {
-	AbstractInexineTest.login();
-    }
-
 }
