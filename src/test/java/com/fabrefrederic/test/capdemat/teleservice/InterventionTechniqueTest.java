@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.fabrefrederic.test.capdemat.AbstractInexineTest;
 
 /**
+ * Test du téléservice intervention technique
  * 
  * @author Inexine : Frederic Fabre
  *

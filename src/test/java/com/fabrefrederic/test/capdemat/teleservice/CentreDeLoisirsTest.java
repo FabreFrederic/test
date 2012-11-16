@@ -7,6 +7,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
@@ -16,11 +17,12 @@ import com.fabrefrederic.test.capdemat.AbstractInexineTest;
 /**
  * 
  * @author Inexine : Frederic Fabre
- *
+ * 
  */
 public class CentreDeLoisirsTest extends AbstractInexineTest {
 
     /**
+     * Test du téléservice inscription centre de loisirs
      * 
      * @throws java.lang.Exception
      * 
@@ -29,14 +31,15 @@ public class CentreDeLoisirsTest extends AbstractInexineTest {
     public static void setUp() throws Exception {
 	AbstractInexineTest.login();
     }
-    
+
     /**
      * Création d'une demande de type centre de loisirs
-     *  
-     * @throws Exception 
-     *
+     * 
+     * @throws Exception
+     * 
      */
     @Test
+    @Ignore
     public void centreDeLoisirsCreation() throws Exception {
 	AbstractInexineTest.driver.get(baseUrl + "/frontoffice/requestType/index");
 	AbstractInexineTest.driver.findElement(By.linkText("Inscription Centre de loisirs")).click();
@@ -59,7 +62,8 @@ public class CentreDeLoisirsTest extends AbstractInexineTest {
 	AbstractInexineTest.driver.findElement(By.id("contactPolyIndividuals.0.address.streetNumber")).clear();
 	AbstractInexineTest.driver.findElement(By.id("contactPolyIndividuals.0.address.streetNumber")).sendKeys("15");
 	AbstractInexineTest.driver.findElement(By.id("contactPolyIndividuals.0.address.streetName")).clear();
-	AbstractInexineTest.driver.findElement(By.id("contactPolyIndividuals.0.address.streetName")).sendKeys("rue des testeurs");
+	AbstractInexineTest.driver.findElement(By.id("contactPolyIndividuals.0.address.streetName")).sendKeys(
+		"rue des testeurs");
 	AbstractInexineTest.driver.findElement(By.id("contactPolyIndividuals.0.address.postalCode")).clear();
 	AbstractInexineTest.driver.findElement(By.id("contactPolyIndividuals.0.address.postalCode")).sendKeys("34000");
 	AbstractInexineTest.driver.findElement(By.id("contactPolyIndividuals.0.address.city")).clear();
@@ -76,14 +80,17 @@ public class CentreDeLoisirsTest extends AbstractInexineTest {
 	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.firstName")).clear();
 	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.firstName")).sendKeys("Emilie");
 	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.address.streetNumber")).clear();
-	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.address.streetNumber")).sendKeys("21");
+	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.address.streetNumber"))
+		.sendKeys("21");
 	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.address.streetName")).clear();
 	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.address.streetName")).sendKeys(
 		"Chemin des personnes autorisées");
 	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.address.postalCode")).clear();
-	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.address.postalCode")).sendKeys("30250");
+	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.address.postalCode")).sendKeys(
+		"30250");
 	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.address.city")).clear();
-	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.address.city")).sendKeys("Villevieille");
+	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.address.city")).sendKeys(
+		"Villevieille");
 	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.homePhone")).clear();
 	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.homePhone")).sendKeys("0466234100");
 	AbstractInexineTest.driver.findElement(By.id("authorizedPolyIndividuals.0.officePhone")).clear();
