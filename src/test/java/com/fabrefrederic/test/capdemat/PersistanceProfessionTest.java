@@ -5,11 +5,13 @@ package com.fabrefrederic.test.capdemat;
 
 import static org.junit.Assert.assertTrue;
 
+import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
 public class PersistanceProfessionTest extends AbstractInexineTest {
+    private static Logger logger = Logger.getLogger(PersistanceProfessionTest.class);
     CharSequence profession01 = "analyste";
     CharSequence profession02 = "developpeur";
 
@@ -55,6 +57,12 @@ public class PersistanceProfessionTest extends AbstractInexineTest {
      */
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
+	try {
+	    AbstractInexineTest.initialisation();
+	}
+	catch (Exception exceptionInitilisation) {
+	    logger.error(exceptionInitilisation.getMessage());
+	}
 	AbstractInexineTest.login();
     }
 }

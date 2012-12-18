@@ -5,6 +5,7 @@ package com.fabrefrederic.test.capdemat.teleservice;
 
 import static org.junit.Assert.fail;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -20,6 +21,7 @@ import com.fabrefrederic.test.capdemat.AbstractInexineTest;
  * 
  */
 public class CentreDeLoisirsTest extends AbstractInexineTest {
+    private static Logger logger = Logger.getLogger(CentreDeLoisirsTest.class);
 
     /**
      * Test du téléservice inscription centre de loisirs
@@ -29,6 +31,12 @@ public class CentreDeLoisirsTest extends AbstractInexineTest {
      */
     @BeforeClass
     public static void setUp() throws Exception {
+	try {
+	    AbstractInexineTest.initialisation();
+	}
+	catch (Exception exceptionInitilisation) {
+	    logger.error(exceptionInitilisation.getMessage());
+	}
 	AbstractInexineTest.login();
     }
 

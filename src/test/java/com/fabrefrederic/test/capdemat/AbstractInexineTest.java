@@ -28,11 +28,11 @@ public abstract class AbstractInexineTest {
 
     /**
      * 
-     *
-     * @throws Exception 
-     *
+     * 
+     * @throws Exception
+     * 
      */
-    public static void login() throws Exception {
+    public static void initialisation() throws Exception {
 	// Paramétrage
 	try {
 	    properties.load(new FileInputStream("src/test/resources/config.properties"));
@@ -53,9 +53,18 @@ public abstract class AbstractInexineTest {
 	 */
 	driver.manage().timeouts()
 		.implicitlyWait(Integer.parseInt(properties.getProperty("driver.timeout")), TimeUnit.SECONDS);
-
 	// Connexion au site
 	driver.get(baseUrl + "/frontoffice/home/login");
+	
+    }
+
+    /**
+     * 
+     * 
+     * @throws Exception
+     * 
+     */
+    public static void login() throws Exception {
 	driver.findElement(By.id("login")).clear();
 	driver.findElement(By.id("login")).sendKeys(properties.getProperty("login"));
 	driver.findElement(By.id("password")).clear();

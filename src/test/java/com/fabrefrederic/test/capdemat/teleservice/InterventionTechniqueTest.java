@@ -6,6 +6,7 @@ package com.fabrefrederic.test.capdemat.teleservice;
 import static org.junit.Assert.assertTrue;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -20,6 +21,7 @@ import com.fabrefrederic.test.capdemat.AbstractInexineTest;
  *
  */
 public class InterventionTechniqueTest extends AbstractInexineTest {
+    private static Logger logger = Logger.getLogger(InterventionTechniqueTest.class);
 
     /**
      * 
@@ -28,6 +30,12 @@ public class InterventionTechniqueTest extends AbstractInexineTest {
      */
     @BeforeClass
     public static void setUp() throws Exception {
+	try {
+	    AbstractInexineTest.initialisation();
+	}
+	catch (Exception exceptionInitilisation) {
+	    logger.error(exceptionInitilisation.getMessage());
+	}
 	AbstractInexineTest.login();
     }
     
