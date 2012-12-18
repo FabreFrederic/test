@@ -3,6 +3,8 @@
  */
 package com.fabrefrederic.test.capdemat;
 
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -17,6 +19,9 @@ public class IndividuDemandeNotInHomeFolderChargeTest extends AbstractInexineTes
     @Test
     public void connexionDeconnexion() {
 	Integer compteur = 0;
+	Date maDate = new Date(); 
+	// affichage: 
+	logger.info(maDate.toString()); 
 	
 	try {
 	    AbstractInexineTest.initialisation();
@@ -25,7 +30,7 @@ public class IndividuDemandeNotInHomeFolderChargeTest extends AbstractInexineTes
 	    logger.error(exceptionInitilisation.getMessage());
 	}
 	
-	for (int i = 0; i < 500; i++) {
+	for (int i = 0; i < 2; i++) {
 	    try {
 		AbstractInexineTest.login();
 		AbstractInexineTest.driver.get(baseUrl + "/frontoffice/home");
@@ -35,8 +40,11 @@ public class IndividuDemandeNotInHomeFolderChargeTest extends AbstractInexineTes
 		logger.error(e.getMessage());
 	    }
 	    compteur = compteur + 1;
-	    System.out.println(compteur);
+	    logger.info(compteur);
 	}
+	maDate = new Date(); 
+	// affichage: 
+	logger.info(maDate.toString()); 
     }
 
 }
